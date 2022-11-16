@@ -1,0 +1,55 @@
+<mat-toolbar class="app-header">
+    <div><a href="#" target="_blank" class="positronx">Design and Analysis of Algorithm</a></div>
+</mat-toolbar>
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Array Time Calculation</mat-card-title>
+        </mat-card-header>
+
+        <form class="example-form" [formGroup]="arrayForm">
+            <mat-card-content>
+                <mat-form-field class="example-full-width" *ngIf="!randomFlag">
+                    <input matInput placeholder="Array" type="text" formControlName="array" autocomplete="off">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" *ngIf="randomFlag">
+                    <mat-label>Length</mat-label>
+                    <input matInput placeholder="Length" type="text" formControlName="lengthrandomArray"
+                        autocomplete="off">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Alogorithm</mat-label>
+                    <mat-select formControlName="algorithm">
+                        <mat-option *ngFor="let food of algo" [value]="food.key">{{food.value}}</mat-option>
+
+                    </mat-select>
+                </mat-form-field>
+            </mat-card-content>
+            <button mat-raised-button class="buttons" (click)="onsubmit()">
+                {{this.buttonName}}
+            </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-raised-button class="buttons" (click)="randomArray()">
+                Randomize
+            </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-raised-button class="buttons" (click)="visual()">
+                Visulaize
+            </button>
+            <button mat-raised-button class="buttonreset" (click)="reset()">
+                Reset
+            </button>
+        </form>
+    </mat-card>
+
+</div>
+<div class="overlay" *ngIf="popup">
+    <div class="popup">
+        <h2>Output</h2>
+        <a class="close" (click)="popup = false">&times;</a>
+        <div class="content">
+            <p>Sorted Array: {{sortedArray.length == 0 || sortedArray.length > 30 ? 'Array is too long or no array':
+                sortedArray}}</p>
+            <p>Time: {{sortedArray.length == 0 ? 0 : time}} Seconds</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+#ctx {
+    display: inline-flex !important;
+    width: 1000px !important; 
+    margin-top: 90px !important;
+    height: 500px !important;
+    margin-left: 20px !important; 
+    background-color: white !important;
+}
+
+table {
+    margin-top: 90px;
+    width: 500px;
+  }
+
+.tablediv{
+    display: inline-flex;
+}  
+
+.show{
+    display: flex;
+    justify-content: space-around;
+}
